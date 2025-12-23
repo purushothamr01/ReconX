@@ -65,15 +65,15 @@ cd reconx "
 
 " chmod +x reconx.py "
 
-3️⃣ (Optional) Install as a system command
+### 3️⃣ (Optional) Install as a system command
 
 sudo ln -s $(pwd)/reconx.py /usr/local/bin/reconx
 
-4️⃣ Install Python dependencies
+### 4️⃣ Install Python dependencies
 
 " pipx install -r requirements.txt "
 
-5️⃣ Required external tools
+### 5️⃣ Required external tools
 
 Make sure these tools are installed and available in your $PATH:
 
@@ -84,6 +84,7 @@ dnsrecon
 httpx
 nuclei
 ---
+
 ▶️ Usage Examples
 Full recon
 reconx -d example.com --all
