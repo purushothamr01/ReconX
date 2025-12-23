@@ -62,7 +62,7 @@ Clean startup animation — because terminal UX matters
 1️⃣ Clone the repository
 ```bash
 git clone https://github.com/purushothamr01/ReconX.git
-cd reconx
+cd ReconX
 ```
 
 2️⃣ Make executable
