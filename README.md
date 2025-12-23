@@ -50,27 +50,8 @@ ReconX helps you find **attack surface**, not fake confidence.
 
 ---
 
-## 🧱 Project Structure
-reconx/
-├── reconx.py # Main CLI entry
-├── modules/ # Recon modules
-│ ├── subdomains.py
-│ ├── live_hosts.py
-│ ├── js_analysis.py
-│ ├── nuclei_scan.py
-│ └── reflected_params.py
-├── utils/
-│ ├── runner.py
-│ └── logger.py
-├── output/
-│ └── example.com/
-├── reconx_config.cfg
-└── README.md
 
 
-Simple. Modular. Easy to extend.
-
----
 
 ## ⚙️ Installation
 
@@ -99,7 +80,7 @@ sublist3r
 dnsrecon
 httpx
 nuclei
-
+---
 ▶️ Usage Examples
 Full recon
 reconx -d example.com --all
