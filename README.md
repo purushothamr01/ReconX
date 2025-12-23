@@ -58,17 +58,20 @@ ReconX helps you find **attack surface**, not fake confidence.
 ### 1️⃣ Clone the repository
 
 
-git clone https://github.com/yourusername/reconx.git
-cd reconx
+"git clone https://github.com/yourusername/reconx.git
+cd reconx "
 
 ### 2️⃣ Make the script executable
 
-chmod +x reconx.py
+" chmod +x reconx.py "
+
 3️⃣ (Optional) Install as a system command
+
 sudo ln -s $(pwd)/reconx.py /usr/local/bin/reconx
 
 4️⃣ Install Python dependencies
-pip3 install -r requirements.txt
+
+" pipx install -r requirements.txt "
 
 5️⃣ Required external tools
 
