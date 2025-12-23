@@ -2,7 +2,12 @@ requests
 httpx
 aiohttp
 beautifulsoup4
-rich
 colorama
-tqdm
+rich
+slack_sdk
+discord-webhook
+pyjsparser
 pyyaml
+tqdm
+packaging
+regex
