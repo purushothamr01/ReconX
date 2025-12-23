@@ -6,8 +6,8 @@ import os
 import sys
 import asyncio
 import logging
-from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime
 from colorama import Fore, Style
 import requests
 from bs4 import BeautifulSoup
@@ -38,6 +38,43 @@ def print_banner():
     print(Fore.YELLOW + "Built by Purushotham R\n" + Style.RESET_ALL)
 
 # -------------------------
+# Man Page
+# -------------------------
+def show_man():
+    man_text = """
+RECONKIT(1) ReconKit Manual
+
+NAME
+    reconkit - Personal Reconnaissance Framework for Bug Bounty
+
+SYNOPSIS
+    reconkit -d <domain> [OPTIONS]
+
+DESCRIPTION
+    ReconKit automates subdomain enumeration, live host detection,
+    JS endpoint extraction, Nuclei scanning, reflected parameter detection,
+    and supports Slack/Discord notifications.
+
+OPTIONS
+    -d, --domain <domain>       Target domain (required)
+    --subs                       Run subdomain enumeration only
+    --live                       Detect live hosts
+    --js                         Extract JavaScript endpoints
+    --nuclei                     Run Nuclei smart templates
+    --reflected                  Detect reflected parameters
+    --scope <file>               Provide a scope file
+    --update                     Update ReconKit to latest version
+    -o, --output <dir>           Output directory
+    -h, --help                   Show help
+    --man                        Show this man page
+
+AUTHOR
+    Purushotham R — Security Researcher | Bug Bounty Hunter
+"""
+    print(man_text)
+    sys.exit(0)
+
+# -------------------------
 # JS Endpoint Extraction
 # -------------------------
 async def extract_js_endpoints(url):
@@ -58,20 +95,28 @@ async def run_parallel(tasks):
     return results
 
 # -------------------------
-# Core CLI
+# Main CLI
 # -------------------------
 def main():
     parser = argparse.ArgumentParser(description="ReconKit: Bug Bounty Recon Framework")
-    parser.add_argument("-d", "--domain", help="Target domain", required=True)
+    parser.add_argument("-d", "--domain", help="Target domain")
     parser.add_argument("--subs", action="store_true", help="Run subdomain enumeration")
     parser.add_argument("--live", action="store_true", help="Detect live hosts")
     parser.add_argument("--js", action="store_true", help="Extract JS endpoints")
     parser.add_argument("--nuclei", action="store_true", help="Run Nuclei smart templates")
     parser.add_argument("--reflected", action="store_true", help="Detect reflected parameters")
     parser.add_argument("--scope", help="Provide scope file")
-    parser.add_argument("--update", action="store_true", help="Update ReconKit to latest version")
+    parser.add_argument("--update", action="store_true", help="Update ReconKit")
     parser.add_argument("-o", "--output", help="Output directory", default="output")
+    parser.add_argument("--man", action="store_true", help="Show man page")
     args = parser.parse_args()
+
+    if args.man:
+        show_man()
+
+    if not args.domain and not args.update:
+        parser.print_help()
+        sys.exit(1)
 
     print_banner()
 
